@@ -1,6 +1,7 @@
-﻿using System.IO;
-using System;
-using System.Collections;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace AOC2023
 {
@@ -13,21 +14,7 @@ namespace AOC2023
 
         public override void Part1(string[] input)
         {
-            int sum = 0;
-            foreach(string s in input) {
-                char first = '\0';
-                char last = '\0';
-                foreach(char c in s.ToCharArray()) {
-                    if(Char.IsDigit(c)) {
-                        if(first == '\0') {
-                            first = c;
-                        }
-                        last = c;
-                    }
-                }
-                sum += int.Parse(new string(new char[] { first, last }));
-            }
-            Console.WriteLine(sum);
+            PrintAnswer(input.Select(s => Regex.Replace(s, @"[^\d]", "")).Sum(s => int.Parse(s[0].ToString() + s[s.Length - 1])));
         }
 
 
@@ -66,7 +53,7 @@ namespace AOC2023
                 }
                 sum += int.Parse(new string(new char[] { first, last }));
             }
-            Console.WriteLine(sum);
+            PrintAnswer(sum);
         }
     }
 }
