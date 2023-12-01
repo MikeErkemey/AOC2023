@@ -1,9 +1,10 @@
 ﻿namespace AOC2023
 {
-    internal class Program
+    public class AOCMain
     {
         public static void Main(string[] args)
         {
+            new day01();
         }
     }
 }

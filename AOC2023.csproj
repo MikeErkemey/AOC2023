@@ -40,8 +40,15 @@
         <Reference Include="System.Xml"/>
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="Program.cs"/>
         <Compile Include="Properties\AssemblyInfo.cs"/>
+        <Compile Include="solutions\AOCMain.cs" />
+        <Compile Include="solutions\AOCPuzzle.cs" />
+        <Compile Include="solutions\day01.cs" />
+    </ItemGroup>
+    <ItemGroup>
+      <Content Include="input\day01.txt">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
