@@ -44,9 +44,14 @@
         <Compile Include="solutions\AOCMain.cs" />
         <Compile Include="solutions\AOCPuzzle.cs" />
         <Compile Include="solutions\day01.cs" />
+        <Compile Include="solutions\day02.cs" />
+        <Compile Include="solutions\dayXX.cs" />
     </ItemGroup>
     <ItemGroup>
       <Content Include="input\day01.txt">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="input\day02.txt">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
     </ItemGroup>
