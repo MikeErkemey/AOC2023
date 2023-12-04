@@ -28,6 +28,10 @@ namespace AOC2023
         {
             PrintAnswer(answer.ToString());
         }
+        public void PrintAnswer(double answer)
+        {
+            PrintAnswer(answer.ToString());
+        }
         public void PrintAnswer(String answer)
         {
             Console.WriteLine($"Part {part++}:" + answer);
