@@ -8,7 +8,8 @@
             // new day02();
             // new day03();
             // new day04();
-            new day05();
+            // new day05();
+            new day06();
         }
     }
 }
