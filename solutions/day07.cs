@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -14,6 +14,7 @@ namespace AOC2023
 
         public override void Part1(string[] input)
         {
+            List<List<String>> pokerCards = input.Select(s => s.Split(' ').ToList()).ToList();
             List<Char> order = new List<Char> { 'A', 'K', 'Q', 'J', 'T', '9', '8', '7', '6', '5', '4', '3', '2' };
             
             pokerCards = pokerCards.OrderBy(p => p[0].Select(c => p[0].Count(x => x == c)).Max())

@@ -1,4 +1,4 @@
-﻿namespace AOC2023
+namespace AOC2023
 {
     public class AOCMain
     {
@@ -11,7 +11,8 @@
             // new day05();
             // new day06();
             // new day07();
-            new day08();
+            // new day08();
+            new day09();
         }
     }
 }
