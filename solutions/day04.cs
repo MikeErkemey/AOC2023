@@ -18,7 +18,6 @@ namespace AOC2023
             foreach (String s in input)
             {
                 string[] split = s.Split(new char[] { ':', '|' });
-                // int cardNumber = int.Parse(Regex.Match(s, @"(\d+)").ToString());
                 int[] winningNumbers = split[1].Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Select(n => int.Parse(n)).ToArray();
                 int[] ownNumbers = split[2].Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Select(n => int.Parse(n)).ToArray();
                 int matches = ownNumbers.Intersect(winningNumbers).ToArray().Length;
