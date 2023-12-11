@@ -13,7 +13,8 @@ namespace AOC2023
             // new day07();
             // new day08();
             // new day09();
-            new day10();
+            // new day10();
+            new day11();
         }
     }
 }
