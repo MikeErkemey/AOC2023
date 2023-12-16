@@ -16,6 +16,7 @@ namespace AOC2023
                 string[] input = File.ReadAllLines($"input/day{day.PadLeft(2, '0')}.txt");
                 watch.Start();
                 Part1(input);
+                watch.Reset();
                 watch.Start();
                 Part2(input);
         }  
