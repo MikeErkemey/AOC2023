@@ -57,7 +57,10 @@
         <Compile Include="solutions\day13.cs" />
         <Compile Include="solutions\day14.cs" />
         <Compile Include="solutions\day15.cs" />
+        <Compile Include="solutions\day16.cs" />
+        <Compile Include="solutions\day17.cs" />
         <Compile Include="solutions\dayXX.cs" />
+        <Compile Include="solutions\Node.cs" />
         <Compile Include="solutions\Point2d.cs" />
     </ItemGroup>
     <ItemGroup>
@@ -101,6 +104,12 @@
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
       <Content Include="input\day15.txt">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="input\day16.txt">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="input\day17.txt">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
     </ItemGroup>
