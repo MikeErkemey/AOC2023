@@ -79,21 +79,13 @@ namespace AOC2023
             long answer = helper(Enumerable.Range(1, 4000).ToArray(),Enumerable.Range(1, 4000).ToArray(),Enumerable.Range(1, 4000).ToArray(),Enumerable.Range(1, 4000).ToArray(), "in", flows);
             
             PrintAnswer(answer);
-            
-            //287106896578654
-            PrintAnswer(167409079868000);
         }
 
         private long helper(int[] x, int[] m, int[] a, int[] s, string currentFlow, Dictionary<string, string> flows)
         {
             if (x.Length == 0 || a.Length == 0 || a.Length == 0 || s.Length == 0) return 0;
             if (currentFlow.Equals("R")) return 0;
-            if (currentFlow.Equals("A"))
-            {
-                
-                Console.WriteLine(x.Length + ", " + m.Length + ", " + a.Length + ", " + s.Length);
-                return (long)x.Length * m.Length * a.Length * s.Length;
-            }
+            if (currentFlow.Equals("A")) return (long)x.Length * m.Length * a.Length * s.Length;
             long answer = 0;
             var checks = flows[currentFlow].Split(',');
             Dictionary<string, int[]> dict = new Dictionary<string, int[]> {{"x",x}, {"m",m}, {"a",a}, {"s",s} };
@@ -110,56 +102,54 @@ namespace AOC2023
                 var arr = dict[r];
                 if (check.Equals(">"))
                 {
-                    var split = arr.Skip(arr.ToList().IndexOf(value) + 1).ToArray();
                     if (r.Equals("x"))
                     {
-                        answer += helper(split, m, a, s, c.Split(':')[1], flows);
-                        x = arr.Take(arr.ToList().IndexOf(value) + 1).ToArray();
+                        answer += helper(x.Skip(x.ToList().IndexOf(value) + 1).ToArray(), m, a, s, c.Split(':')[1], flows);
+                        x = x.Take(x.ToList().IndexOf(value) + 1).ToArray();
                     }
 
                     if (r.Equals("m"))
                     {
-                        answer += helper(x, split, a, s, c.Split(':')[1], flows);
-                        m = arr.Take(arr.ToList().IndexOf(value) + 1).ToArray();
+                        answer += helper(x, m.Skip(m.ToList().IndexOf(value) + 1).ToArray(), a, s, c.Split(':')[1], flows);
+                        m = m.Take(m.ToList().IndexOf(value) + 1).ToArray();
                     }
 
                     if (r.Equals("a"))
                     {
-                        answer += helper(x, m, split, s, c.Split(':')[1], flows);
-                        a = arr.Take(arr.ToList().IndexOf(value) + 1).ToArray();
+                        answer += helper(x, m, a.Skip(a.ToList().IndexOf(value) + 1).ToArray(), s, c.Split(':')[1], flows);
+                        a = a.Take(a.ToList().IndexOf(value) + 1).ToArray();
                     }
 
                     if (r.Equals("s"))
                     {
-                        answer += helper(x, m, a, split, c.Split(':')[1], flows);
-                        s = arr.Take(arr.ToList().IndexOf(value) + 1).ToArray();
+                        answer += helper(x, m, a, s.Skip(s.ToList().IndexOf(value) + 1).ToArray(), c.Split(':')[1], flows);
+                        s = s.Take(s.ToList().IndexOf(value) + 1).ToArray();
                     }
                 }
                 else
                 {
-                    var split = arr.Take(arr.ToList().IndexOf(value)).ToArray();
                     if (r.Equals("x"))
                     {
-                        answer += helper(split, m, a, s, c.Split(':')[1], flows);
-                        x = arr.Skip(arr.ToList().IndexOf(value)).ToArray();
+                        answer += helper(x.Take(x.ToList().IndexOf(value)).ToArray(), m, a, s, c.Split(':')[1], flows);
+                        x = x.Skip(x.ToList().IndexOf(value)).ToArray();
                     }
 
                     if (r.Equals("m"))
                     {
-                        answer += helper(x, split, a, s, c.Split(':')[1], flows);
-                        m = arr.Skip(arr.ToList().IndexOf(value)).ToArray();
+                        answer += helper(x, m.Take(m.ToList().IndexOf(value)).ToArray(), a, s, c.Split(':')[1], flows);
+                        m = m.Skip(m.ToList().IndexOf(value)).ToArray();
                     }
 
                     if (r.Equals("a"))
                     {
-                        answer += helper(x, m, split, s, c.Split(':')[1], flows);
-                        a = arr.Skip(arr.ToList().IndexOf(value)).ToArray();
+                        answer += helper(x, m, a.Take(a.ToList().IndexOf(value)).ToArray(), s, c.Split(':')[1], flows);
+                        a = a.Skip(a.ToList().IndexOf(value)).ToArray();
                     }
 
                     if (r.Equals("s"))
                     {
-                        answer += helper(x, m, a, split, c.Split(':')[1], flows);
-                        s = arr.Skip(arr.ToList().IndexOf(value)).ToArray();
+                        answer += helper(x, m, a, s.Take(s.ToList().IndexOf(value)).ToArray(), c.Split(':')[1], flows);
+                        s = s.Skip(s.ToList().IndexOf(value)).ToArray();
                     }
                 }
             }
