@@ -4,14 +4,23 @@ namespace AOC2023
 {
     public class Point2d
     {
-        private long x;
-        private long y;
+        public long x;
+        public long y;
+        public char move;
 
         public Point2d(long x, long y)
         {
             this.x = x;
             this.y = y;
         }
+
+        public Point2d(long x, long y, char move)
+        {
+            this.x = x;
+            this.y = y;
+            this.move = move;
+        }
+
 
         public long DistanceRoute(Point2d other)
         {
@@ -22,6 +31,12 @@ namespace AOC2023
         {
             return x == other.x && y == other.y;
         }
+
+        public override string ToString()
+        {
+            return this.x + " - " + this.y;
+        }
+
 
         public override bool Equals(object obj)
         {
